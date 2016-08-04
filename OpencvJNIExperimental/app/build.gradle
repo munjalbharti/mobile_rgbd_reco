@@ -1,0 +1,261 @@
+apply plugin: "com.android.model.application"
+
+model {
+    android {
+        compileSdkVersion 23
+        buildToolsVersion "23.0.2"
+
+        defaultConfig {
+            applicationId "exp.com.tum.opencvjniexperimental"
+            minSdkVersion.apiLevel 8
+            targetSdkVersion.apiLevel 23
+            versionCode 1
+            versionName "1.0"
+
+            buildConfigFields {
+                create() {
+                    type "int"
+                    name "VALUE"
+                    value "1"
+                }
+            }
+
+        }
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles.add(file("proguard-rules.pro"))
+                ndk {
+
+                    debuggable true
+
+                }
+
+            }
+        }
+
+        ndk {
+
+            //This will be the name of your library (so: libNdkModule.so)
+            print "Running default android ndk "
+
+            moduleName "wow"
+
+            cppFlags.add("-std=c++11")
+            cppFlags.add("-fexceptions")
+            //  cppFlags.add("-frtti")
+
+
+            // toolchain "gcc"
+            //toolchainVersion "4.8"
+
+            // ldLibs.add("android");
+            //ldLibs.add("log")
+            //ldLibs.add("z")
+            // ldLibs.add("jnigraphics")
+            //ldLibs.add("GLESv2")
+
+            ldLibs.addAll(["android", "EGL","jnigraphics", "GLESv2", "dl", "log", "z"])
+            //  ldLibs += ["log","z","jnigraphics"]
+            // cppFlags.add("-std=c++11")
+            cppFlags.add("-fexceptions")
+            cppFlags.add("-frtti")
+
+
+            cppFlags.add("-I${file("src/main/jni/include")}".toString())
+            //cppFlags += "-I${file("src/main/jni/include")}".toString()
+
+            // ldLibs += ["android", "EGL", "GLESv2", "dl", "log", "z"]
+
+            //NDK_TOOLCHAIN_VERSION := 4.8
+            //  stl  "gnustl_static" //"stlport_static"
+            stl = "gnustl_shared"
+
+        }
+
+        productFlavors {
+
+            create("armv7") {
+
+
+                ndk.with {
+                    abiFilters.add("armeabi-v7a")
+
+                    File curDir = file('./')
+                    curDir = file(curDir.absolutePath)
+                    String libsDir = curDir.absolutePath + "/src/main/myLibraries/armeabi-v7a/" //"-L" +
+                    print "Libs Directory"
+                    print libsDir
+
+                    ldLibs.add(libsDir + "libopencv_core.a");
+                    ldLibs.add(libsDir + "libopencv_highgui.a");
+                    ldLibs.add(libsDir + "libopencv_java3.so");
+                    ldLibs.add(libsDir + "libopencv_ml.a");
+                    ldLibs.add(libsDir + "libopencv_hal.a");
+                    ldLibs.add(libsDir + "libopencv_flann.a");
+                    ldLibs.add(libsDir + "libopencv_imgcodecs.a");
+                    ldLibs.add(libsDir + "libopencv_features2d.a");
+                    ldLibs.add(libsDir + "libopencv_calib3d.a");
+                    ldLibs.add(libsDir + "libopencv_ts.a");
+                    ldLibs.add(libsDir + "libopencv_video.a");
+
+                    ldLibs.add(libsDir + "libopencv_videostab.a");
+                    ldLibs.add(libsDir + "libopencv_videoio.a");
+                    ldLibs.add(libsDir + "libopencv_superres.a");
+                    ldLibs.add(libsDir + "libopencv_stitching.a");
+                    ldLibs.add(libsDir + "libopencv_shape.a");
+                    ldLibs.add(libsDir + "libopencv_photo.a");
+                    ldLibs.add(libsDir + "libopencv_objdetect.a");
+                    ldLibs.add(libsDir + "libopencv_imgproc.a");
+
+                    ldLibs.add(libsDir + "libIlmImf.a");
+                    ldLibs.add(libsDir + "liblibjasper.a");
+                    ldLibs.add(libsDir + "liblibjpeg.a");
+                    ldLibs.add(libsDir + "liblibpng.a");
+                    ldLibs.add(libsDir + "liblibtiff.a");
+                    ldLibs.add(libsDir + "liblibwebp.a");
+                    ldLibs.add(libsDir + "libtbb.a");
+
+                    //prebuilt libraries
+                    //  ldLibs.add(libsDir + "libpangolin.so");
+
+
+                    ldLibs.add(libsDir + "libnonfree.so");
+
+
+                    print "printing ldLibs" + ldLibs;
+
+
+                }
+
+            }
+
+            create("fat") {
+            }
+
+        }
+
+
+        sources {
+
+            main {
+                jni {
+                    source {
+                        srcDir "src/main/jni"
+                        //srcDirs =  [];
+
+                    }
+
+                }
+
+            }
+
+            main {
+                jniLibs {
+                    source {
+                        //default is jniLibs
+                        srcDirs "src/main/myLibraries/"
+                    }
+                }
+            }
+
+        }
+    }
+
+}
+
+
+//
+//task ndkBuild(type: Exec) {
+//    //commandLine '/home/munjalbharti/android-ndk/ndk-build --info', '-C', file('src/main/jni/').absolutePath
+//    Properties properties = new Properties()
+//    properties.load(project.rootProject.file('local.properties').newDataInputStream())
+//
+//    def ndkDir = properties.getProperty('ndk.dir')
+//    print 'Using ndk dir'+ndkDir
+//    //copy only ur lib to myLibraries
+//    commandLine ndkDir+'/ndk-build','-C', file('src/main/jni/').absolutePath,'NDK_DEBUG=1'
+//doLast{
+//    print "Copying libs"
+//
+//    copy{
+//
+//        from 'src/main/libs/arm64-v8a/'
+//        into 'src/main/myLibraries/arm64-v8a'
+//        include 'libwow.so'
+//    }
+//    copy{
+//
+//        from 'src/main/libs/arm64-v8a/'
+//        into 'src/main/myLibraries/arm64-v8a'
+//        include 'libwow.so'
+//    }
+//    copy{
+//
+//        from 'src/main/libs/arm64-v8a/'
+//        into 'src/main/myLibraries/arm64-v8a'
+//        include 'libwow.so'
+//    }
+//    copy{
+//
+//        from 'src/main/libs/armeabi/'
+//        into 'src/main/myLibraries/armeabi'
+//        include 'libwow.so'
+//    }
+//    copy{
+//
+//        from 'src/main/libs/armeabi-v7a/'
+//        into 'src/main/myLibraries/armeabi-v7a'
+//        include 'libwow.so'
+//    }
+//    copy{
+//
+//        from 'src/main/libs/armeabi-v7a/'
+//        into 'src/main/myLibraries/armeabi-v7a'
+//        include 'libwow.so'
+//    }
+//    copy{
+//
+//        from 'src/main/libs/mips/'
+//        into 'src/main/myLibraries/mips'
+//        include 'libwow.so'
+//    }
+//    copy{
+//
+//        from 'src/main/libs/mips64/'
+//        into 'src/main/myLibraries/mips64'
+//        include 'libwow.so'
+//    }
+//
+//    copy{
+//
+//        from 'src/main/libs/x86/'
+//        into 'src/main/myLibraries/x86'
+//        include 'libwow.so'
+//    }
+//    copy{
+//
+//        from 'src/main/libs/x86_64/'
+//        into 'src/main/myLibraries/x86_64'
+//        include 'libwow.so'
+//    }
+//}
+//
+//
+//    //NDK_OUT=./obj
+//}
+//
+//
+//tasks.withType(JavaCompile) {
+//    compileTask -> compileTask.dependsOn ndkBuild
+//}
+
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    testCompile 'junit:junit:4.12'
+    compile 'com.android.support:appcompat-v7:23.1.1'
+    compile 'com.android.support:design:23.1.1'
+    compile project(':opencv')
+
+}

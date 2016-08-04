@@ -1,0 +1,26 @@
+[
+    {
+        "merged": "/home/munjalbharti/AndroidStudioProjects/ObjViewer_Android-master1/app/build/intermediates/res/merged/debug/layout/picker_item.xml",
+        "source": "/home/munjalbharti/AndroidStudioProjects/ObjViewer_Android-master1/app/src/main/res/layout/picker_item.xml"
+    },
+    {
+        "merged": "/home/munjalbharti/AndroidStudioProjects/mobile_rgbd_reco/ObjViewer_Android-master1/app/build/intermediates/res/merged/debug/layout/picker.xml",
+        "source": "/home/munjalbharti/AndroidStudioProjects/mobile_rgbd_reco/ObjViewer_Android-master1/app/src/main/res/layout/picker.xml"
+    },
+    {
+        "merged": "/home/munjalbharti/AndroidStudioProjects/mobile_rgbd_reco/ObjViewer_Android-master1/app/build/intermediates/res/merged/debug/layout/picker_item.xml",
+        "source": "/home/munjalbharti/AndroidStudioProjects/mobile_rgbd_reco/ObjViewer_Android-master1/app/src/main/res/layout/picker_item.xml"
+    },
+    {
+        "merged": "/home/munjalbharti/AndroidStudioProjects/ObjViewer_Android-master1/app/build/intermediates/res/merged/debug/layout/picker.xml",
+        "source": "/home/munjalbharti/AndroidStudioProjects/ObjViewer_Android-master1/app/src/main/res/layout/picker.xml"
+    },
+    {
+        "merged": "/home/munjalbharti/AndroidStudioProjects/mobile_rgbd_reco/ObjViewer_Android-master1/app/build/intermediates/res/merged/debug/layout/main.xml",
+        "source": "/home/munjalbharti/AndroidStudioProjects/mobile_rgbd_reco/ObjViewer_Android-master1/app/src/main/res/layout/main.xml"
+    },
+    {
+        "merged": "/home/munjalbharti/AndroidStudioProjects/ObjViewer_Android-master1/app/build/intermediates/res/merged/debug/layout/main.xml",
+        "source": "/home/munjalbharti/AndroidStudioProjects/ObjViewer_Android-master1/app/src/main/res/layout/main.xml"
+    }
+]

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="nz.gen.geek_central.ObjViewer"
+    android:versionCode="1"
+    android:versionName="16150.8"
+>
+    <uses-sdk
+        android:minSdkVersion="7"
+    />
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <application
+        android:label="@string/app_name"
+        android:icon="@drawable/icon"
+    >
+        <activity
+            android:name="Main"
+            android:label="@string/app_name"
+        >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+                <data android:scheme="file"/>
+                <data android:pathPattern=".*\\.obj"/>
+                <data android:mimeType="model/obj"/>
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="Picker"
+        />
+    </application>
+</manifest>

@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "/home/munjalbharti/AndroidStudioProjects/mobile_rgbd_reco/ObjViewer_Android-master1/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/icon.png",
+        "source": "/home/munjalbharti/AndroidStudioProjects/mobile_rgbd_reco/ObjViewer_Android-master1/app/src/main/res/drawable-hdpi/icon.png"
+    },
+    {
+        "merged": "/home/munjalbharti/AndroidStudioProjects/ObjViewer_Android-master1/app/build/intermediates/res/merged/debug/drawable-hdpi-v4/icon.png",
+        "source": "/home/munjalbharti/AndroidStudioProjects/ObjViewer_Android-master1/app/src/main/res/drawable-hdpi/icon.png"
+    }
+]

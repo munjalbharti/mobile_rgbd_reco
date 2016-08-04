@@ -1,0 +1,31 @@
+Manifest-Version: 1.0
+Built-By: 1.5.0
+Created-By: Android Gradle 1.5.0
+
+Name: res/layout/main.xml
+SHA1-Digest: sokLhtWa3AJznYvWazIEibY0Gt4=
+
+Name: res/drawable-hdpi-v4/icon.png
+SHA1-Digest: t3gUSGmX63lkbVMI3pmtZxCCP7o=
+
+Name: AndroidManifest.xml
+SHA1-Digest: ZfddwI8hILLz+iYXtC68/Hnx8GY=
+
+Name: res/drawable-mdpi-v4/icon.png
+SHA1-Digest: C/KNso4/8YNRMTZmqavxpUSDqnk=
+
+Name: res/layout/picker_item.xml
+SHA1-Digest: 2oRMkULXvmWid6uBWod9kJbuZpk=
+
+Name: res/drawable-ldpi-v4/icon.png
+SHA1-Digest: o0w8CoePAyf7K0omeY4AXvodD28=
+
+Name: resources.arsc
+SHA1-Digest: aT6ISZkiUs0lhqjdQJ9zN4Ne6Tw=
+
+Name: classes.dex
+SHA1-Digest: /TetJ3J0yvzZky3NwLGqrAwW2ig=
+
+Name: res/layout/picker.xml
+SHA1-Digest: US0PPobmbbtUAGtLrDzJt+KUu44=
+

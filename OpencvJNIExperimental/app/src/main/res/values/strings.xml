@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">OpencvJNIExperimental</string>
+    <string name="action_settings">Settings</string>
+    <string name="reset_view">Reset View</string>
+    <string name="random_view">Random View</string>
+    <string name="options_lighting">Lighting...</string>
+    <string name="options_orient_faces">Orient Faces...</string>
+
+    <string name="lighting_title">Lighting</string>
+    <string name="orient_faces_title">Front Face Orientation</string>
+
+    <string name="on">On</string>
+    <string name="off">Off</string>
+    <string name="clockwise">Clockwise</string>
+    <string name="anticlockwise">Anticlockwise</string>
+    <string name="startup_prompt">Use Menu/Open... to open a .obj file</string>
+
+
+</resources>
